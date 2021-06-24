@@ -1,4 +1,4 @@
-import 'package:doctor_appointment/screens/test.dart';
+import 'package:doctor_appointment/screens/setting.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:doctor_appointment/res/custom_colors.dart';
@@ -49,7 +49,9 @@ class _HomeScreenState extends State<HomeScreen> {
     Center(
       child: Text('Shedule'),
     ),
-    Test(),
+    Setting(
+      user: _user,
+    ),
   ];
 
   @override
@@ -223,6 +225,8 @@ class _HomePageState extends State<HomePage> {
                 _buildHomeVisit(),
               ],
             ),
+            _symptoms(),
+            _popularDoctors(),
           ],
         ),
       ),
@@ -231,9 +235,9 @@ class _HomePageState extends State<HomePage> {
 
   Widget _buildClinicVisit() => Container(
         padding: EdgeInsets.all(20),
-        height: MediaQuery.of(context).size.height / 5,
+        height: MediaQuery.of(context).size.height / 5.5,
         width: MediaQuery.of(context).size.width / 2.3,
-        clipBehavior: Clip.antiAlias,
+        // clipBehavior: Clip.antiAlias,
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage("assets/bg.png"),
@@ -249,18 +253,52 @@ class _HomePageState extends State<HomePage> {
           ],
           borderRadius: BorderRadius.circular(10),
         ),
-        child: Text('hei'),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Icon(
+              Icons.add_circle_rounded,
+              size: 50,
+              color: Colors.white,
+            ),
+            Container(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Clinic Visit",
+                    style: TextStyle(
+                      fontFamily: 'Lato',
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 5.0,
+                  ),
+                  Text(
+                    "Make an appointment",
+                    style: TextStyle(
+                      fontFamily: 'Lato',
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
       );
   Widget _buildHomeVisit() => Container(
         padding: EdgeInsets.all(20),
-        height: MediaQuery.of(context).size.height / 5,
+        height: MediaQuery.of(context).size.height / 5.5,
         width: MediaQuery.of(context).size.width / 2.3,
         clipBehavior: Clip.antiAlias,
         decoration: BoxDecoration(
-          // image: DecorationImage(
-          //   image: AssetImage("assets/bg.png"),
-          //   fit: BoxFit.cover,
-          // ),
           color: Colors.white,
           boxShadow: [
             BoxShadow(
@@ -272,6 +310,161 @@ class _HomePageState extends State<HomePage> {
           ],
           borderRadius: BorderRadius.circular(10),
         ),
-        child: Text('hei'),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Icon(
+              Icons.home_rounded,
+              size: 50,
+              color: CustomColors.primaryButton,
+            ),
+            Container(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Home visit",
+                    style: TextStyle(
+                      fontFamily: 'Lato',
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 5.0,
+                  ),
+                  Text(
+                    "Call the doctor home",
+                    style: TextStyle(
+                      fontFamily: 'Lato',
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.black,
+                    ),
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
+      );
+
+  Widget _symptoms() => Container(
+        margin: EdgeInsets.all(10.0),
+        padding: EdgeInsets.all(10.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              "What are your symptoms?",
+              style: TextStyle(
+                fontFamily: 'Lato',
+                fontSize: 26,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
+            ),
+            SizedBox(
+              height: 8.0,
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20.0),
+                      color: Colors.grey.withOpacity(0.1),
+                    ),
+                    padding: EdgeInsets.all(18.0),
+                    child: Text(
+                      "🤒 Temperature",
+                      style: TextStyle(
+                        fontFamily: 'Lato',
+                        fontSize: 17,
+                        fontWeight: FontWeight.normal,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 10.0,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20.0),
+                      color: Colors.grey.withOpacity(0.1),
+                    ),
+                    padding: EdgeInsets.all(18.0),
+                    child: Text(
+                      "🤧 Snuffle",
+                      style: TextStyle(
+                        fontFamily: 'Lato',
+                        fontSize: 17,
+                        fontWeight: FontWeight.normal,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 10.0,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20.0),
+                      color: Colors.grey.withOpacity(0.1),
+                    ),
+                    padding: EdgeInsets.all(18.0),
+                    child: Text(
+                      "🤕 Fever",
+                      style: TextStyle(
+                        fontFamily: 'Lato',
+                        fontSize: 17,
+                        fontWeight: FontWeight.normal,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 10.0,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20.0),
+                      color: Colors.grey.withOpacity(0.1),
+                    ),
+                    padding: EdgeInsets.all(18.0),
+                    child: Text(
+                      "😷 Tiredness",
+                      style: TextStyle(
+                        fontFamily: 'Lato',
+                        fontSize: 17,
+                        fontWeight: FontWeight.normal,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      );
+  Widget _popularDoctors() => Container(
+        margin: EdgeInsets.all(10.0),
+        padding: EdgeInsets.all(10.0),
+        child: Text(
+          "Popular doctors",
+          style: TextStyle(
+            fontFamily: 'Lato',
+            fontSize: 26,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
+        ),
       );
 }
