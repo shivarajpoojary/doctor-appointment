@@ -150,6 +150,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return SafeArea(
       child: Container(
         margin: EdgeInsets.only(
@@ -212,9 +213,65 @@ class _HomePageState extends State<HomePage> {
             SizedBox(
               height: 20,
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                _buildClinicVisit(),
+                SizedBox(
+                  width: 10,
+                ),
+                _buildHomeVisit(),
+              ],
+            ),
           ],
         ),
       ),
     );
   }
+
+  Widget _buildClinicVisit() => Container(
+        padding: EdgeInsets.all(20),
+        height: MediaQuery.of(context).size.height / 5,
+        width: MediaQuery.of(context).size.width / 2.3,
+        clipBehavior: Clip.antiAlias,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/bg.png"),
+            fit: BoxFit.cover,
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black12,
+              blurRadius: 8.0,
+              spreadRadius: 5.0,
+              offset: Offset(2.0, 2.0), // shadow direction: bottom right
+            )
+          ],
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Text('hei'),
+      );
+  Widget _buildHomeVisit() => Container(
+        padding: EdgeInsets.all(20),
+        height: MediaQuery.of(context).size.height / 5,
+        width: MediaQuery.of(context).size.width / 2.3,
+        clipBehavior: Clip.antiAlias,
+        decoration: BoxDecoration(
+          // image: DecorationImage(
+          //   image: AssetImage("assets/bg.png"),
+          //   fit: BoxFit.cover,
+          // ),
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black12,
+              blurRadius: 2.0,
+              spreadRadius: 0.0,
+              offset: Offset(2.0, 2.0), // shadow direction: bottom right
+            )
+          ],
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Text('hei'),
+      );
 }
