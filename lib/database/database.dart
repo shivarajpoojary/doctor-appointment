@@ -20,7 +20,8 @@ class Database {
             "id": doc.id,
             "name": doc['name'],
             "type": doc["type"],
-            "rating": doc["rating"]
+            "rating": doc["rating"],
+            "image": doc["image"],
           };
           docs.add(a);
         }
