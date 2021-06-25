@@ -32,12 +32,10 @@ class _MessageState extends State<Message> {
     return Column(
       children: [
         SizedBox(
-          height: MediaQuery.of(context).size.height * 4,
+          height: MediaQuery.of(context).size.height * 5,
           child: GridView.builder(
+            physics: ClampingScrollPhysics(),
             scrollDirection: Axis.vertical,
-            physics: ScrollPhysics(),
-            shrinkWrap: true,
-            primary: false,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
               crossAxisSpacing: 2,
@@ -100,7 +98,7 @@ class _MessageState extends State<Message> {
                       height: 6.0,
                     ),
                     Text(
-                      "${docs[index]['rating']}",
+                      "⭐ ${docs[index]['rating']}",
                       style: TextStyle(
                         fontFamily: 'Lato',
                         fontSize: 16,
