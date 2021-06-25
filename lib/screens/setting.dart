@@ -14,7 +14,6 @@ class Setting extends StatefulWidget {
 }
 
 class _SettingState extends State<Setting> {
-  int _currentIndex = 0;
   late User _user;
   bool _isSigningOut = false;
 
