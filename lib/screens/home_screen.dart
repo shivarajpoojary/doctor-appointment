@@ -1,6 +1,7 @@
 import 'package:doctor_appointment/database/database.dart';
-import 'package:doctor_appointment/screens/message.dart';
+import 'package:doctor_appointment/screens/popular-doctor.dart';
 import 'package:doctor_appointment/screens/setting.dart';
+import 'package:doctor_appointment/screens/test.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:doctor_appointment/res/custom_colors.dart';
@@ -18,36 +19,16 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _currentIndex = 0;
   late User _user;
-  // bool _isSigningOut = false;
-
-  // Route _routeToSignInScreen() {
-  //   return PageRouteBuilder(
-  //     pageBuilder: (context, animation, secondaryAnimation) => SignInScreen(),
-  //     transitionsBuilder: (context, animation, secondaryAnimation, child) {
-  //       var begin = Offset(-1.0, 0.0);
-  //       var end = Offset.zero;
-  //       var curve = Curves.ease;
-
-  //       var tween =
-  //           Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-
-  //       return SlideTransition(
-  //         position: animation.drive(tween),
-  //         child: child,
-  //       );
-  //     },
-  //   );
-  // }
 
   late List<Widget> _widgetOptions = <Widget>[
     // Center(
     //   child: Text('Home'),
     // ),
     HomePage(user: _user),
-    Center(
-      child: Text('Messages'),
-    ),
-
+    // Center(
+    //   child: Text('Messages'),
+    // ),
+    Test(),
     Center(
       child: Text('Shedule'),
     ),
@@ -253,7 +234,7 @@ class _HomePageState extends State<HomePage> {
               ),
               _symptoms(),
               _popularDoctors(),
-              Message(),
+              PopularDoctor(),
             ],
           ),
         ),
