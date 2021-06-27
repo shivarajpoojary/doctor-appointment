@@ -18,14 +18,6 @@ class _DetailedViewState extends State<DetailedView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // body: Center(
-      //   child: Text(widget.doctor['name']),
-      // ),
-      // appBar: AppBar(
-      //   backgroundColor: CustomColors.primaryButton,
-      //   elevation: 0,
-      //   title: Text(widget.doctor['name']),
-      // ),
       body: Container(
         height: double.infinity,
         padding: EdgeInsets.only(
@@ -134,6 +126,34 @@ class _DetailedViewState extends State<DetailedView> {
                   ),
                 )
               ],
+            ),
+          ],
+        ),
+      ),
+      bottomSheet: Container(
+        padding: EdgeInsets.all(10.0),
+        height: MediaQuery.of(context).size.height / 1.47,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(100.0),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            MaterialButton(
+              minWidth: double.infinity,
+              height: 60,
+              onPressed: () {},
+              color: CustomColors.primaryButton,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)),
+              child: Text(
+                "Book Appointment",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 18),
+              ),
             ),
           ],
         ),
