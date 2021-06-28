@@ -22,6 +22,10 @@ class Database {
             "type": doc["type"],
             "rating": doc["rating"],
             "image": doc["image"],
+            "about": doc["about"],
+            "address1": doc["address1"],
+            "address2": doc["address2"],
+            "price": doc["price"],
           };
           docs.add(a);
         }
