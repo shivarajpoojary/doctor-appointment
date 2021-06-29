@@ -138,7 +138,7 @@ class _DetailedViewState extends State<DetailedView> {
           borderRadius: BorderRadius.circular(100.0),
         ),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
@@ -158,6 +158,9 @@ class _DetailedViewState extends State<DetailedView> {
                   fontWeight: FontWeight.normal,
                   color: Colors.black,
                   height: 1.5),
+            ),
+            SizedBox(
+              height: 40,
             ),
             Card(
               child: ListTile(
@@ -185,6 +188,9 @@ class _DetailedViewState extends State<DetailedView> {
                       height: 1.5),
                 ),
               ),
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.3,
             ),
             Container(
               padding: EdgeInsets.all(10.0),
