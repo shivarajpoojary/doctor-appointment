@@ -218,16 +218,16 @@ class _DetailedViewState extends State<DetailedView> {
                           style: TextStyle(
                               fontFamily: 'Lato',
                               fontSize: 16,
-                              fontWeight: FontWeight.normal,
+                              fontWeight: FontWeight.bold,
                               color: Colors.black,
                               height: 1.5),
                         ),
                         Text(
-                          "${widget.doctor['price']}",
+                          '\$ ${widget.doctor['price']}',
                           style: TextStyle(
                               fontFamily: 'Lato',
                               fontSize: 16,
-                              fontWeight: FontWeight.normal,
+                              fontWeight: FontWeight.bold,
                               color: Colors.black,
                               height: 1.5),
                         ),
